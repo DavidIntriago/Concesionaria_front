@@ -27,7 +27,7 @@ function Inicio_Sesion() {
          router.push('../ger');
           
         }else{
-          router.push('../user/auto');
+          router.push('../user');
 
         }
       }

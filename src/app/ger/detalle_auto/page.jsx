@@ -8,6 +8,7 @@ import {
   updateAuto,
 } from "@/hooks/Conexion";
 import { useEffect, useState } from "react";
+import { format } from "path";
 
 export default function Crear_auto() {
   const router = useRouter();
@@ -40,11 +41,14 @@ export default function Crear_auto() {
   };
   const sendImg = async (fileList) => {
     try {
+      console.log(fileList)
       if (fileList.length > 0) {
         const file = fileList[0];
-
+        console.log(file)
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append('data', externalAuto)
+        formData.append("file", fileList[0]);
+        console.log(formData)
         const agg=await aggImg(formData,token, externalAuto)
         console.log(agg)
         return formData;
